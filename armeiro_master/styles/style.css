@@ -1,0 +1,417 @@
+/* GERAL */
+
+body
+{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 10px;
+  padding: 5px;
+  line-height: 2;
+}
+
+/* TITULOS */
+
+
+h2
+{
+  font-size: 32px;
+  color: #30312d; 
+  position: static;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+
+}
+
+h3
+{
+  font-size: 32px;
+  color: #30312d; 
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+}
+
+h4
+{
+  font-size: 16px;
+  color: #30312d; 
+  width: 100%;
+  padding: 0px;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+
+.offcanvas-font-size {
+  font-size: 25px; 
+}
+
+/* MENU DE CADASTROS */
+
+.Cadastro {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color:#fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(67, 86, 66);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+.grupoCadastro {
+  margin-bottom: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+input[type="text"]
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select
+{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bt_cadastrar 
+{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #4d8357; 
+  color: #fff;
+  width: auto;
+  align-items: center;
+}
+
+.bt_modelo
+{
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #4d8357; 
+  color: #fff;
+  width: auto;
+  align-items: center;
+}
+
+
+
+/* CONFIGURACAO DA TABELA */
+
+
+/* BOTAO EXCLUIR */
+.btn-lixeira {
+  background-color: #fcfcfc; 
+  color: rgb(0, 0, 0); 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  outline: none; 
+}
+
+
+.btn-lixeira:hover {
+  background-color: #9d0000; 
+}
+
+
+.btn-lixeira:active {
+  background-color: #9d0000; 
+}
+
+/* BOTAO FAVORITO */
+.btn-favorito {
+  background-color: #fcfcfc; 
+  color: rgb(0, 0, 0); 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  outline: none; 
+}
+
+
+.btn-favorito:hover {
+  background-color: #c5be00; 
+}
+
+
+.btn-favorito:active {
+  background-color: #c5be00; 
+}
+
+
+
+.campos {
+  width: 100%; 
+  height: 100%; 
+  margin: 0 auto; 
+  align-items: center;
+  margin-top: 20px;
+
+  
+}
+
+#tabela {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #2f4530; 
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* CABECALHO  */
+#tabela th
+{
+    background-color: #3b5440; 
+    color: white;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+}
+
+#tabela td {
+    background-color: #4d8357; 
+    color: white;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+}
+
+/* BARRA DE ROLAGEM HORIZONTAL */
+#corpo-tabela {
+  overflow-x: 100%;
+}
+
+/* LARGURA DAS COLUNAS */
+#tabela th:nth-child(1),
+#tabela td:nth-child(1) {
+    min-width: 40px;
+}
+#tabela th:nth-child(2),
+#tabela td:nth-child(2) {
+    min-width: 40px;
+}
+
+/* LINHAS ALTERNADAS */
+#tabela tbody tr:nth-child(even) {
+    background-color: #689a72; 
+}
+
+/* CÉLULAS DA PRIMEIRA COLUNA */
+#tabela tbody tr td:first-child {
+    background-color: #3b5440; 
+    color: white;
+}
+
+/* TELAS MENORES */
+@media only screen and (max-width: 600px) {
+  #tabela th, #tabela td {
+      padding: 6px;
+  }
+
+  
+  #tabela th {
+      display: none;
+  }
+
+  
+  #tabela td {
+      display: block;
+      border: none;
+  }
+
+  /* ESTILO PRIMEIRA CELULA POR LINHA */
+  #tabela td:nth-child(1) {
+      background-color: #f2f2f2;
+      font-weight: bold;
+  }
+
+  /* ESTILO CELULA DE CABECALHO */
+  #tabela td:not(:nth-child(1)) {
+      border-top: 1px solid #ddd;
+  }
+
+  /* ESPACO ENTRE CELULAS */
+  #tabela td:not(:nth-child(1))::before {
+      content: "\a";
+      white-space: pre;
+  }
+}
+
+/* FILTROS */ 
+
+.hidden {
+  display: none;
+}
+
+
+.filtros
+{
+  top: 300px;
+  left: 10px;
+  width: 250px; 
+  height: 470px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 0 10px 10px 0; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  transition: left 0.3s ease; 
+  position:fixed;
+  z-index: -1;
+
+}
+
+
+
+/* MENU INICIAL */
+
+.container-fluid{
+
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+header {
+  position: relative;
+  height: 5vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+.titulo {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 60%; 
+  height: 100%; 
+  filter: blur(2px); 
+  background-size: cover;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content h1, .content p {
+  margin: 0;
+}
+
+.radios-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.radio {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.radio img {
+  width: 100%;
+  height: auto;
+}
+
+.radio-info {
+  padding: 20px;
+}
+
+.radio-info h2 {
+  margin-top: 0;
+}
+
+.radio-info p {
+  margin-bottom: 0;
+}
+
+/* MENU AJUDA */
+
+.Ajuda {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color:#fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(67, 86, 66);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+input[type="text"]
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select
+{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bt_enviar 
+{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #4d8357; 
+  color: #fff;
+  width: auto;
+  align-items: center;
+}

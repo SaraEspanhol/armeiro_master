@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="carousel.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    
+    <title>Rádios Cadastrados</title>
+
+</head>
+ 
+<body onload="loadMateriais()">
+        <header>
+                <!-- Navbar - Menu -->
+
+            <nav class="navbar navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                <a class="navbar-brand font-monospace" href="inicio.html">Armeiro Master</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                        <h5 class="offcanvas-title font-monospace" id="offcanvasNavbarLabel">Armeiro Master</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
+                                <li class="nav-item">
+                                    <a class="nav-link font-monospace"  href="login.html">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link font-monospace"  href="radios.html">Rádios Cadastrados</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link font-monospace" href="cadastro.html">Cadastrar Rádios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link font-monospace" href="ajuda.html">Fale Conosco</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header> 
+
+
+ 
+    <main>
+            <!-- Filtros -->
+
+        <div class="container-fluid text-center">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+                    <div class="dropdown-menu d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px align-self-start">
+                        <form class="px-4 py-3">
+                            <div class="mb-3">
+                                <h4 class="font-monospace">Filtros</h4>
+                                <div class="dropdown-divider"></div>
+                                    <select id="filtroRef" class="filtro-dropdown">
+                                        <option value="">Referência</option>
+                                    </select>
+
+                                    <select id="filtroGrupo" class="filtro-dropdown">
+                                        <option value="">Grupo</option>
+                                    </select>
+                        
+                                    <select id="filtroModelo" class="filtro-dropdown">
+                                        <option value="">Modelo</option>
+                                    </select>
+                        
+                                    <select id="filtroNS" class="filtro-dropdown">
+                                        <option value="">Número de Série</option>
+                                    </select>
+                        
+                                    <select id="filtroBateria" class="filtro-dropdown">
+                                        <option value="">Bateria</option>
+                                    </select>
+                        
+                                    <select id="filtroAntena" class="filtro-dropdown">
+                                        <option value="">Antena</option>
+                                    </select>
+                        
+                                    <select id="filtroSituacao" class="filtro-dropdown">
+                                        <option value="">Situação</option>
+                                    </select>
+                        
+                                    <select id="filtroAlteracao" class="filtro-dropdown">
+                                        <option value="">Alteração</option>
+                                    </select>
+                            </div>
+                            <button type="button" class="btn btn-outline-success" id="bt_exportar">Exportar</button>
+                        </form>
+                    </div>
+                </div>  
+              </div>
+                  <!-- Tabela -->
+
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <div class="campos">
+                        <section>
+                            <div class="table-responsive">
+                                <table id="tabela">
+                                    <thead>
+                                        <tr>
+                                            <th><button type="button" class="btn"> REF</button></th>
+                                            <th><button type="button" class="btn"> Grupo</button></th>
+                                            <th><button type="button" class="btn"> Modelo</button></th>
+                                            <th><button type="button" class="btn"> Número de Série</button></th>
+                                            <th><button type="button" class="btn"> Bateria</button></th>
+                                            <th><button type="button" class="btn"> Antena</button></th>
+                                            <th><button type="button" class="btn"> Situação</button></th>
+                                            <th><button type="button" class="btn"> Alteração</button></th>
+                                            <th><button type="button" class="btn"> Excluir</button></th>
+                                            <th><button type="button" class="btn"> Favorito</button></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="corpo-tabela">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </main>
+ <!-- Footer -->
+   <footer>
+    <p>© 2024 Armeiro Master. Todos os direitos reservados.</p>
+    </footer> 
+</body>
+</html>

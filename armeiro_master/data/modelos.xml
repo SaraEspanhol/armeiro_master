@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<modelos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelo>
+    <nome>RF-7800V-P</nome>
+    <pre>RAD1</pre>
+    <grupo>GRUPO 2</grupo>
+  </modelo>
+  <modelo>
+    <nome>RF-7800V-V</nome>
+    <pre>RAD2</pre>
+    <grupo>GRUPO 4</grupo>
+  </modelo>
+  <modelo>
+    <nome>XTS-1500</nome>
+    <pre>RAD3</pre>
+    <grupo>GRUPO 2</grupo>
+  </modelo>
+  <modelo>
+    <nome>XTL-1500</nome>
+    <pre>RAD4</pre>
+    <grupo>GRUPO 4</grupo>
+  </modelo>
+  <modelo>
+    <nome>YAESU</nome>
+    <pre>RAD5</pre>
+    <grupo>GRUPO 5</grupo>
+  </modelo>
+  <modelo>
+    <nome>VERTEX</nome>
+    <pre>RAD6</pre>
+    <grupo>GRUPO 3</grupo>
+  </modelo>
+  <modelo>
+    <nome>PRO-5150</nome>
+    <pre>RAD7</pre>
+    <grupo>GRUPO 2</grupo>
+  </modelo>
+  <modelo>
+    <nome>AAAAA</nome>
+    <pre>RAD8</pre>
+    <grupo>GRUPO 2</grupo>
+  </modelo>
+</modelos>
