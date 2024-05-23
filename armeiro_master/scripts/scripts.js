@@ -426,3 +426,4 @@ function cadastrarNovoRadio() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('bt_Cadastrar').addEventListener('click', cadastrarNovoRadio);
 });
+
