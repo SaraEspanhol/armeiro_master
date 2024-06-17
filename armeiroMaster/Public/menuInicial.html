@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="carousel.css" rel="stylesheet">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="scripts/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <title>Armeiro Master</title>
+</head>
+<body>
+  <header>
+    <!-- Navbar - Menu -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand font-monospace" href="menuInicial.html">Armeiro Master</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                <h5 class="offcanvas-title font-monospace" id="offcanvasNavbarLabel">Armeiro Master</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
+                      <li class="nav-item">
+                        <a class="nav-link font-monospace"  href="index.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link font-monospace"  href="radios.html">Rádios Cadastrados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-monospace" href="ajuda.html">Fale Conosco</a>
+                        </li>
+                        <li class="nav-item">
+                          <button id="logoutBtn" class="btn btn-outline-light"> Logout</button>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+      <img src="img/Armeiro Master.jpg" class="img-fluid" alt="Imagem de fundo"> 
+      <p class="lead text-body-secondary font-monospace text-center">Site para gerenciamento dos rádios pertencentes ao pelotão de comunicações do 28º BIMEC</p>
+    </div>
+</header>  
+
+    <main>
+       <!-- Exemplos de Rádios -->
+
+      <div class="container marketing">
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1 font-monospace">Radio RF-7800V-P </h2>
+            <h2 class="text-body-secondary font-monospace">Rádio VHF</h2>
+            <p class="lead font-monospace">Rádio da família HARRIS utilizado para comunicação dos Pelotões com as suas Companhias</p>
+          </div>
+          <div class="col-md-5">
+            <img src="img/rf7800vp.webp" class="img-fluid rounded mx-auto d-block" alt="Descrição da imagem">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1 font-monospace">Rádio Yaesu System 600 </h2>
+            <h2 class="text-body-secondary font-monospace">Rádio HF</h2>
+            <p class="lead font-monospace">Rádio utilizado para comunicação em longas distâncias</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img src="img/yaesu.jpeg" class="img-fluid rounded mx-auto d-block" alt="Descrição da imagem">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1 font-monospace">Rádio XTS 1500 </h2>
+            <h2 class="text-body-secondary font-monospace">Radio VUHF (Ultraportátil)</h2>
+            <p class="lead font-monospace">Rádio utilizado para comunicação de pequenas frações. Quando integrado ao SRDT, pode ser utilizado para comunicações em longas distâncias e escalões superiores.</p>
+          </div>
+          <div class="col-md-5">
+            <img src="img/XTS1500.png" class="img-fluid rounded mx-auto d-block" alt="Descrição da imagem">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+
+      </div>
+
+
+
+        <!-- Footer -->
+
+          <footer class="container">
+            <p>&copy; Armeiro Master 2024 &middot;</p>
+          </footer>
+    </main>
+ 
+</body>
+</html>
