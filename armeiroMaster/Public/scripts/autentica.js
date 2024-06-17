@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
 
-    // Adiciona ouvintes de evento aos botões
+    // Adiciona evento aos botões
     signupBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const email = document.getElementById('email').value;
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         login(email, password);
     });
 
-    // Observador de estado de autenticação
+    // autenticação
     auth.onAuthStateChanged((user) => {
         if (user) {
             const uid = user.uid;
@@ -148,10 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (welcomeMessage) {
                 welcomeMessage.textContent = '';
 
-                // Remover outros elementos que precisam ser limpos ao deslogar
                 const inicioBtnContainer = document.getElementById('inicioBtnContainer');
                 if (inicioBtnContainer) {
-                    inicioBtnContainer.innerHTML = ''; // Limpa o contêiner
+                    inicioBtnContainer.innerHTML = ''; 
                 }
             }
             

@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
-//oi
+
 export { app, auth, database };
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -25,12 +25,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let currentSortColumn = null;
     let isAscending = true;
 
-
+    //Carregar informacoes do banco
     const readData = () => {
         get(ref(database, 'radios')).then((snapshot) => {
             if (snapshot.exists()) {
                 radiosData = snapshot.val();
-                // Call updateTable after radiosData is populated
                 updateTable();
                 populateFilters();
             } else {
@@ -41,47 +40,57 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     };
     
-
-    const updateTable = (data = null) => {
+    //Fazer update da tabela para filtrar, favoritar e excluir rádios
+    const updateTable = async (data = null) => {
         const tableBody = document.getElementById('corpo-tabela');
-        tableBody.innerHTML = ''; // Limpar a tabela
-    
-        let radiosToDisplay = data ? data : Object.keys(radiosData).map(key => ({ id: key, ...radiosData[key] }));
-    
+        tableBody.innerHTML = ''; 
+      
+        let radiosToDisplay = data ? data : []; 
         const filters = {
-            ref: document.getElementById('filtroRef').value,
-            grupo: document.getElementById('filtroGrupo').value,
-            modelo: document.getElementById('filtroModelo').value,
-            numeroSerie: document.getElementById('filtroNS').value,
-            bateria: document.getElementById('filtroBateria').value,
-            antena: document.getElementById('filtroAntena').value,
-            situacao: document.getElementById('filtroSituacao').value,
-            alteracao: document.getElementById('filtroAlteracao').value,
+          ref: document.getElementById('filtroRef').value,
+          grupo: document.getElementById('filtroGrupo').value,
+          modelo: document.getElementById('filtroModelo').value,
+          numeroSerie: document.getElementById('filtroNS').value,
+          bateria: document.getElementById('filtroBateria').value,
+          antena: document.getElementById('filtroAntena').value,
+          situacao: document.getElementById('filtroSituacao').value,
+          alteracao: document.getElementById('filtroAlteracao').value,
         };
-    
-        let sortedData = radiosToDisplay.slice(); // Criar uma cópia dos dados para ordenação
-    
+      
+        let sortedData = []; 
+      
         if (currentSortColumn) {
-            sortedData.sort((a, b) => {
-                const fieldA = a[currentSortColumn] || '';
-                const fieldB = b[currentSortColumn] || '';
-                const comparison = fieldA.localeCompare(fieldB, 'en', { sensitivity: 'base' });
-                return isAscending ? comparison : -comparison;
-            });
+          sortedData.sort((a, b) => {
+            const fieldA = a[currentSortColumn] || '';
+            const fieldB = b[currentSortColumn] || '';
+            const comparison = fieldA.localeCompare(fieldB, 'en', { sensitivity: 'base' });
+            return isAscending ? comparison : -comparison;
+          });
         }
-    
-        for (let radio of sortedData) {
-            if ((filters.ref && filters.ref !== radio.id) ||
-                (filters.grupo && filters.grupo !== radio.group) ||
-                (filters.modelo && filters.modelo !== radio.model) ||
-                (filters.numeroSerie && filters.numeroSerie !== radio.serialNumber) ||
-                (filters.bateria && filters.bateria !== radio.battery) ||
-                (filters.antena && filters.antena !== radio.antenna) ||
-                (filters.situacao && filters.situacao !== radio.status) ||
-                (filters.alteracao && filters.alteracao !== radio.alteration)) {
-                continue;
+      
+        const radiosRef = ref(database, 'radios');
+        const snapshot = await get(radiosRef);
+      
+        if (snapshot.exists()) {
+          radiosData = snapshot.val();
+          radiosToDisplay = Object.keys(radiosData).map(key => ({ id: key, ...radiosData[key] }));
+      
+        //Aplicar filtros selecionados
+          for (let radio of radiosToDisplay) {
+            if (
+              (filters.ref && filters.ref !== radio.id) ||
+              (filters.grupo && filters.grupo !== radio.group) ||
+              (filters.modelo && filters.modelo !== radio.model) ||
+              (filters.numeroSerie && filters.numeroSerie !== radio.serialNumber) ||
+              (filters.bateria && filters.bateria !== radio.battery) ||
+              (filters.antena && filters.antena !== radio.antenna) ||
+              (filters.situacao && filters.situacao !== radio.status) ||
+              (filters.alteracao && filters.alteracao !== radio.alteration)
+            ) {
+              continue;
             }
-    
+      
+            // Criar linhas da tabela
             let row = tableBody.insertRow();
             row.insertCell(0).textContent = radio.id;
             row.insertCell(1).textContent = radio.group;
@@ -91,20 +100,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             row.insertCell(5).textContent = radio.antenna;
             row.insertCell(6).textContent = radio.status;
             row.insertCell(7).textContent = radio.alteration;
-    
+      
+            // Adicionar botões Excluir e Favoritar
             let btnExcluir = document.createElement('button');
             btnExcluir.textContent = 'Excluir';
             btnExcluir.classList.add('btn', 'btn-outline-danger', 'btn-sm', 'me-1');
             btnExcluir.onclick = () => excluirRadio(radio.id);
             row.insertCell(8).appendChild(btnExcluir);
-    
+      
             let btnFavorito = document.createElement('button');
             btnFavorito.classList.add('btn', 'btn-sm', 'me-1', 'p-0', 'border-0', 'bg-transparent');
             btnFavorito.innerHTML = radio.favorito ? '<i class="bi bi-star-fill text-warning"></i>' : '<i class="bi bi-star text-warning"></i>';
             btnFavorito.onclick = () => favoritarRadio(radio.id);
             row.insertCell(9).appendChild(btnFavorito);
+          }
+        } else {
+          console.log("No data available");
         }
-    };
+      };
     
 
     const sortByColumn = (columnName) => {

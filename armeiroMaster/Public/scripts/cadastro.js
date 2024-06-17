@@ -98,6 +98,7 @@ function readData() {
 document.getElementById('bt_Cadastrar').addEventListener('click', cadastrarRadio);
 document.getElementById('bt_atualizar').addEventListener('click', atualizarRadio);
 
+// funcao de logout
 document.getElementById('logoutBtn').addEventListener('click', () => {
   signOut(auth).then(() => {
     alert("Logout realizado com sucesso.");
